@@ -1,16 +1,44 @@
 // Iteration #1: Find the maximum
-
+function maxOfTwoNumbers (a,b){
+  if (a>b){
+    return a;
+  } else {return b;}
+}
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
-
+function findLongestWord(words){
+  let index = 0;
+  if (words.length==0){
+    return null;
+  }
+  for (let i=1; i<words.length; i++){
+    
+    if (words[index].length<words[i].length){
+      index = i;
+    } 
+  }
+  return words[index];
+}
+//console.log(longestWord(words))
 // Iteration #3: Calculate the sum
-
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-
+function sumArray (array){
+  let sum = 0;
+    for (let i = 0; i<array.length; i++){
+    sum += array[i];
+  }
+  return sum;
+}
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-
+function averageNumbers(numbersAvg){
+  let average =0;
+  if(numbersAvg.length==0){
+    return null;
+  }
+  return average = sumArray(numbersAvg)/numbersAvg.length;
+}
 // Level 2: Array of strings
 const wordsArr = [
   'seat',
@@ -24,7 +52,16 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
-
+function averageWordLength (wordsArr){
+  let averageWordLength = 0;
+  if (wordsArr.length == 0){
+    return null;
+  }
+  wordsArr.forEach((element,index,array) => {
+    averageWordLength += element.length;
+  });
+  return averageWordLength/wordsArr.length;
+}
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -39,7 +76,17 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
-
+function uniquifyArray (wordsUnique) {
+  let array= [];
+  let element = "";
+  for (let i = 0; i<wordsUnique.length; i++){
+    if (wordsUnique.indexOf(wordsUnique[i])==i){
+      array.push(wordsUnique[i]);
+    }
+    
+  }
+  return array;
+}
 // Iteration #6: Find elements
 const wordsFind = [
   'machine',
@@ -51,7 +98,15 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
-
+function doesWordExist(wordsFind,word){
+  
+  for (let i=0; i<wordsFind.length; i++){
+    if (wordsFind[i]===word){
+      return true;
+    }
+  }
+  return false;
+}
 // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
@@ -66,9 +121,16 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
-
+function howManyTimes(wordsFind,word){
+  let num=0;
+  for (let i=0; i<wordsFind.length; i++){
+    if (wordsFind[i]===word){
+      num +=1;
+    }
+  }
+  return num;
+}
 // Iteration #8: Bonus
-
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
@@ -91,3 +153,136 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+const matrix1 = [[1,2,3,4,5],
+                 [1,20,3,4,5],
+                 [1,20,3,4,5],
+                 [1,20,3,4,5],
+                 [1,4,3,4,5]];
+
+// function greatProductHorizontal(matrix1){
+//   let great = 0;
+//   let multi = 0;
+//   for (let i = 0; i<matrix1.length; i++){
+//     for(let j = 0; j<matrix1[i].length;j++){
+//       if (j<matrix1[i].length && j+1 <matrix1[i].length && j + 2<matrix1[i].length && j + 3 <matrix1[i].length){
+//         multi = ((matrix1[i][j])*(matrix1[i][j+1])*(matrix1[i][j+2])*(matrix1[i][j+3]));
+//         if (great<multi){
+//           great = multi;
+//         }
+//       }
+      
+//     }
+// }
+//   return great;
+// }
+
+// function greatProductVertical(matrix1){
+//   let great = 0;
+//   let multi = 0;
+//   for (let i = 0; i<matrix1.length; i++){
+//     for(let j = 0; j<matrix1[i].length;j++){
+//       if (i<matrix1.length && i+1 <matrix1.length && i + 2<matrix1.length && i + 3 <matrix1.length){
+//         multi = ((matrix1[i][j])*(matrix1[i+1][j])*(matrix1[i+2][j])*(matrix1[i+3][j]));
+//         if (great<multi){
+//           great = multi;
+//         }
+//       }
+//     }
+//   }
+//   return great;
+// }
+
+// function greatProductDiagonalPrincipais(matrix1){
+//   let great = 0;
+//   let multi = 0;
+//   for (let i = 0; i<matrix1.length; i++){
+//     for(let j = 0; j<matrix1[i].length;j++){
+//       if (i<matrix1.length && i+1 <matrix1.length && i + 2<matrix1.length && i + 3 <matrix1.length){
+//         if(j<matrix1[i].length && j+1 <matrix1[i].length && j + 2<matrix1[i].length && j + 3 <matrix1[i].length){
+//           multi = ((matrix1[i][j])*(matrix1[i+1][j+1])*(matrix1[i+2][j+2])*(matrix1[i+3][j+3]));
+//           if (great<multi){
+//             great = multi;
+//           }
+//         }
+//       }
+//     }
+//   }
+//   return great;
+// }
+
+
+// function greatProductDiagonalSecundaria(matrix1){
+//   let great = 0;
+//   let multi = 0;
+//   for (let i = 0; i<matrix1.length; i++){
+//     for(let j = 0; j<matrix1[i].length;j++){
+//       if (i>=0 && i+1 <matrix1.length && i + 2<matrix1.length && i + 3 <matrix1.length){
+//         if(j>=0 && j+1 >=0 && j + 2>=0 && j + 3 >=0){
+//           multi = ((matrix1[i][j])*(matrix1[i+1][j-1])*(matrix1[i+2][j-2])*(matrix1[i+3][j-3]));
+//           if (great<multi){
+//             great = multi;
+//           }
+//         }
+//       }
+//     }
+//   }
+//   return great;
+// }
+
+// function greatProduct(matrix1){
+//   let great1 = maxOfTwoNumbers(greatProductHorizontal(matrix1),greatProductVertical(matrix1));
+//   let great2 = maxOfTwoNumbers(greatProductDiagonalPrincipais(matrix1),greatProductDiagonalSecundaria(matrix1));
+//   return maxOfTwoNumbers(great1,great2);
+// }
+
+function greatProduct(matrix1){
+  let great1 =0;
+  let great2= 0;
+  let greatH = 0;
+  let greatV = 0;
+  let greatD1 = 0;
+  let greatD2 = 0;
+  let multi = 0;
+  for (let i = 0; i<matrix1.length; i++){
+    for(let j = 0; j<matrix1[i].length;j++){
+      //Ao inves de fazer 4 funcoes de varrem  a matriz uma vez cada 1, faz-se uma que roda a matriz apenas uma vez.
+      //Para a maior horizontal
+      if (j<matrix1[i].length && j+1 <matrix1[i].length && j + 2<matrix1[i].length && j + 3 <matrix1[i].length){
+          multi = ((matrix1[i][j])*(matrix1[i][j+1])*(matrix1[i][j+2])*(matrix1[i][j+3]));
+        if (greatH<multi){
+          greatH = multi;
+        }
+      }
+      //Para vertical
+      if (i<matrix1.length && i+1 <matrix1.length && i + 2<matrix1.length && i + 3 <matrix1.length){
+        multi = ((matrix1[i][j])*(matrix1[i+1][j])*(matrix1[i+2][j])*(matrix1[i+3][j]));
+        if (greatV<multi){
+          greatV = multi;
+        }
+      }
+      //Diagonal Principal
+      if (i<matrix1.length && i+1 <matrix1.length && i + 2<matrix1.length && i + 3 <matrix1.length){
+        if(j<matrix1[i].length && j+1 <matrix1[i].length && j + 2<matrix1[i].length && j + 3 <matrix1[i].length){
+          multi = ((matrix1[i][j])*(matrix1[i+1][j+1])*(matrix1[i+2][j+2])*(matrix1[i+3][j+3]));
+          if (greatD1<multi){
+            greatD1 = multi;
+          }
+        }
+      }
+      //Diagonal Secundaria
+      if(i<<matrix1.length && i+1 <matrix1.length && i + 2<matrix1.length && i + 3 <matrix1.length){
+        if(j>=0 && j+1 >=0 && j + 2>=0 && j + 3 >=0){
+          multi = ((matrix1[i][j])*(matrix1[i+1][j-1])*(matrix1[i+2][j-2])*(matrix1[i+3][j-3]));
+          if (greatD2<multi){
+            greatD2 = multi;
+          }
+        }
+      }
+    }
+  }
+  great1 = maxOfTwoNumbers(greatH,greatV);
+  great2 = maxOfTwoNumbers(greatD1,greatD2);
+  return maxOfTwoNumbers(great1,great2);
+}
+
+
